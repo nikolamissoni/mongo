@@ -13,7 +13,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
     volumes:
-      - ../database/tol5:/var/lib/mysql
+      - /database/mng:/var/lib/mongo
 
   mongotest:
     hostname: mongotest
@@ -21,3 +21,6 @@ services:
     image: mongotest:latest
     ports:
       - 8080:8080
+    depends_on:
+      - mongodb
+
